@@ -153,7 +153,7 @@ cd backend
 npm install       # Installer les dépendances
 cp .env           # Copier fichier de configuration
 ```
-
+---
 Configuration .env backend :
 ```bash
 PORT=5000
@@ -167,38 +167,46 @@ NODE_ENV=development
 JWT_EXPIRE=30d
 UPLOADS_PATH=./uploads
 ```
+---
 ##Frontend
 ```bash
 cd frontend
 npm install
 cp .env
 ```
+---
 Configuration .env frontend :
 ```bash
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_ENV=development
 ```
-
+---
 # Lancer le projet 
 
 ## Base donnees:
--- Se connecter à MySQL
+-- Se connecter à MySQL:
+```sql
 mysql -u root -p
-
--- Créer la base de données
+```
+---
+-- Créer la base de données:
+```sql
 CREATE DATABASE reservation_salles;
-
--- Utiliser la base de données
+```
+---
+-- Utiliser la base de données :
+```sql
 USE reservation_salles;
-
-
+```
+---
 ## Backend :
 ```bash
 cd backend
 npm run dev
 ```
-Serveur sur http://localhost:5000
 
+Serveur sur http://localhost:5000
+---
 ## Frontend :
 ```bash
 cd frontend
@@ -206,6 +214,7 @@ npm start
 ```
 L’application sera accessible sur http://localhost:3000
 
+---
 
 Endpoints API principaux
 
