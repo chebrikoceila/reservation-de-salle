@@ -169,7 +169,7 @@ UPLOADS_PATH=./uploads
 ```
 ---
 .
-## Frontend
+## (Frontend)
 ```bash
 cd frontend
 npm install
