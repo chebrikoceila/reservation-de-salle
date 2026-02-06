@@ -42,8 +42,8 @@ exports.getAllRooms = async (req, res) => {
     
     query += ' ORDER BY r.created_at DESC';
     
-    console.log('🔍 Final Query:', query);
-    console.log('🔍 Query Params:', params);
+    console.log(' Final Query:', query);
+    console.log(' Query Params:', params);
     
     const [rows] = await pool.execute(query, params);
     
@@ -75,9 +75,9 @@ exports.getAllRooms = async (req, res) => {
   }
 };
 
-// GET /api/rooms/:id - CORRIGÉE
+
 exports.getRoomById = async (req, res) => {
-  console.log(`📥 GET /api/rooms/${req.params.id}`);
+  console.log(` GET /api/rooms/${req.params.id}`);
   try {
     const [rows] = await pool.execute(
       'SELECT * FROM rooms WHERE id = ?',
@@ -91,7 +91,7 @@ exports.getRoomById = async (req, res) => {
       });
     }
     
-    // Récupérer les images de la salle
+    // Récupérer l'images de la salle
     const [images] = await pool.execute(
       'SELECT * FROM room_images WHERE room_id = ?',
       [req.params.id]
@@ -144,7 +144,7 @@ exports.getRoomById = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur dans getRoomById:', error);
+    console.error(' Erreur dans getRoomById:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur lors de la récupération de la salle',
@@ -153,17 +153,14 @@ exports.getRoomById = async (req, res) => {
   }
 };
 
-// ===== FONCTIONS PROTÉGÉES =====
 
-// POST /api/rooms
-// POST /api/rooms - AJOUTER LA GESTION DES IMAGES
 exports.createRoom = async (req, res) => {
-  console.log('📥 POST /api/rooms');
+  console.log(' POST /api/rooms');
   console.log('Utilisateur:', req.user);
   console.log('Fichier reçu:', req.file);
   
   try {
-    // Vérification basique de l'utilisateur
+    // Vérification de l'utilisateur
     if (!req.user || !req.user.id) {
       return res.status(401).json({
         success: false,
@@ -171,7 +168,7 @@ exports.createRoom = async (req, res) => {
       });
     }
     
-    // Vérifier le rôle - SEULEMENT propriétaire ou admin peut créer
+    // Vérifier le rôle 
     if (req.user.role !== 'owner' && req.user.role !== 'admin') {
       return res.status(403).json({
         success: false,
@@ -185,7 +182,7 @@ exports.createRoom = async (req, res) => {
       latitude, longitude, amenities
     } = req.body;
     
-    // Validation simple
+    // Validation 
     if (!title || !capacity || !price_per_hour || !address || !city) {
       return res.status(400).json({
         success: false,
@@ -193,7 +190,7 @@ exports.createRoom = async (req, res) => {
       });
     }
     
-    // 1. Créer la salle dans la base
+    // Créer la salle dans la base
     const [result] = await pool.execute(
       `INSERT INTO rooms (
         owner_id, title, description, capacity, price_per_hour,
@@ -216,27 +213,27 @@ exports.createRoom = async (req, res) => {
     );
     
     const roomId = result.insertId;
-    console.log(`✅ Salle créée - ID: ${roomId}`);
+    console.log(` Salle créée - ID: ${roomId}`);
     
-    // 2. Si une image a été uploadée, l'enregistrer
+    //  Si une image a été uploadée, l'enregistrer
     if (req.file) {
-      console.log('📸 Image uploadée:', req.file.filename);
+      console.log(' Image uploadée:', req.file.filename);
       
       await pool.execute(
         'INSERT INTO room_images (room_id, image_url, is_main) VALUES (?, ?, 1)',
         [roomId, req.file.filename]
       );
       
-      console.log('✅ Image enregistrée dans la base');
+      console.log(' Image enregistrée dans la base');
     }
     
-    // 3. Récupérer la salle créée avec l'image
+    // Récupérer la salle créée avec l'image
     const [newRoom] = await pool.execute(
       'SELECT * FROM rooms WHERE id = ?',
       [roomId]
     );
     
-    // 4. Récupérer l'image si elle existe
+    //  Récupérer l'image si elle existe
     const [images] = await pool.execute(
       'SELECT * FROM room_images WHERE room_id = ?',
       [roomId]
@@ -256,7 +253,7 @@ exports.createRoom = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur dans createRoom:', error);
+    console.error(' Erreur dans createRoom:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur lors de la création',
@@ -264,9 +261,10 @@ exports.createRoom = async (req, res) => {
     });
   }
 };
-// PUT /api/rooms/:id
+
+
 exports.updateRoom = async (req, res) => {
-  console.log(`📥 PUT /api/rooms/${req.params.id}`);
+  console.log(` PUT /api/rooms/${req.params.id}`);
   
   try {
     // Vérifier si l'utilisateur est propriétaire de la salle
@@ -292,7 +290,7 @@ exports.updateRoom = async (req, res) => {
       });
     }
     
-    // Mise à jour des champs fournis
+    // Mise à jour des champs 
     const updateFields = [];
     const updateValues = [];
     
@@ -374,7 +372,7 @@ exports.updateRoom = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur dans updateRoom:', error);
+    console.error(' Erreur dans updateRoom:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur'
@@ -382,9 +380,9 @@ exports.updateRoom = async (req, res) => {
   }
 };
 
-// DELETE /api/rooms/:id - CORRIGÉE
+
 exports.deleteRoom = async (req, res) => {
-  console.log(`📥 DELETE /api/rooms/${req.params.id}`);
+  console.log(` DELETE /api/rooms/${req.params.id}`);
   
   try {
     // Vérifier si l'utilisateur est propriétaire de la salle
@@ -432,7 +430,7 @@ exports.deleteRoom = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur dans deleteRoom:', error);
+    console.error(' Erreur dans deleteRoom:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur lors de la suppression'
@@ -440,11 +438,11 @@ exports.deleteRoom = async (req, res) => {
   }
 };
 
-// ===== ROUTES PROPRIÉTAIRE =====
 
-// GET /api/rooms/owner/my-rooms
+
+
 exports.getOwnerRooms = async (req, res) => {
-  console.log('📥 GET /api/rooms/owner/my-rooms');
+  console.log(' GET /api/rooms/owner/my-rooms');
   
   try {
     const [rows] = await pool.execute(
@@ -459,7 +457,7 @@ exports.getOwnerRooms = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur dans getOwnerRooms:', error);
+    console.error(' Erreur dans getOwnerRooms:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur'
@@ -467,9 +465,9 @@ exports.getOwnerRooms = async (req, res) => {
   }
 };
 
-// GET /api/rooms/owner/stats
+
 exports.getOwnerStats = async (req, res) => {
-  console.log('📥 GET /api/rooms/owner/stats');
+  console.log(' GET /api/rooms/owner/stats');
   
   try {
     // Statistiques basiques
@@ -506,7 +504,7 @@ exports.getOwnerStats = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur dans getOwnerStats:', error);
+    console.error(' Erreur dans getOwnerStats:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur'
@@ -514,11 +512,10 @@ exports.getOwnerStats = async (req, res) => {
   }
 };
 
-// ===== ROUTES ADMIN =====
+//  ROUTES ADMIN 
 
-// GET /api/rooms/admin/all - Pour l'admin
 exports.getAllRoomsAdmin = async (req, res) => {
-  console.log('📥 GET /api/rooms/admin/all (Admin)');
+  console.log(' GET /api/rooms/admin/all (Admin)');
   
   try {
     const [rows] = await pool.execute(
@@ -534,7 +531,7 @@ exports.getAllRoomsAdmin = async (req, res) => {
     });
     
   } catch (error) {
-    console.error('❌ Erreur liste salles admin:', error);
+    console.error(' Erreur liste salles admin:', error);
     res.status(500).json({
       success: false,
       message: 'Erreur serveur'

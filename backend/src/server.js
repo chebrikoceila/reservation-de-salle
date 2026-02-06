@@ -24,14 +24,14 @@ app.use(express.urlencoded({ extended: true }));
 // Servir les fichiers statiques
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// Middleware pour mettre à jour les statuts AVANT chaque requête
+// Middleware pour mettre à jour les statuts avant de chaque requête
 app.use(async (req, res, next) => {
-  // Mettre à jour les statuts seulement pour les requêtes API (optionnel)
+  // Mettre à jour les statuts seulement pour les requêtes API 
   if (req.path.startsWith('/api/')) {
     try {
       const pool = require('./config/database');
       
-      // Mettre à jour les réservations passées en "completed"
+      // Mettre à jour les réservations passées en "completed"----> terminer
       const [result] = await pool.execute(
         `UPDATE bookings 
          SET status = 'completed' 
@@ -40,10 +40,10 @@ app.use(async (req, res, next) => {
       );
       
       if (result.affectedRows > 0) {
-        console.log(`✅ ${result.affectedRows} réservations mises à jour en "completed"`);
+        console.log(` ${result.affectedRows} réservations mises à jour en "completed"`);
       }
     } catch (error) {
-      console.error('❌ Erreur mise à jour statut:', error);
+      console.error(' Erreur mise à jour statut:', error);
     }
   }
   next();
