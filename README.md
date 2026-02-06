@@ -246,7 +246,7 @@ Propriétaire
 - Créer/modifier/supprimer ses salles
 - Upload d'images pour ses salles
 - Gérer les réservations de ses salles (accepter/refuser)
--- Voir les statistiques de ses salles
+- Voir les statistiques de ses salles
 
 Administrateur
 - Toutes les permissions
@@ -255,7 +255,7 @@ Administrateur
 - Accès aux statistiques globales
 ---
 
-# FONCTIONNALITÉS AVANCÉES
+## FONCTIONNALITÉS AVANCÉES
 
 1. Système de Localisation :
 
