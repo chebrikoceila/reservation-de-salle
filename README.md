@@ -138,20 +138,23 @@ CREATE TABLE room_images (
     FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
 );
 ```
+---
 # Installation et Configuration
 
-Prérequis
+## Prérequis
 - Node.js (v14+)
 - MySQL (8.0+)
 
-Backend
+---
+
+## Backend
 
 ```bash
 cd backend
 npm install       # Installer les dépendances
 cp .env           # Copier fichier de configuration
 ```
- Configuration .env backend :
+Configuration .env backend
 ```bash
 PORT=5000
 DB_HOST=localhost
@@ -164,55 +167,47 @@ NODE_ENV=development
 JWT_EXPIRE=30d
 UPLOADS_PATH=./uploads
 ```
----
 Frontend
 ```bash
 cd frontend
 npm install
 cp .env
 ```
- Configuration .env frontend :
+Configuration .env frontend
 ```bash
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_ENV=development
 ```
-
 ---
-# Lancer le projet 
+Lancer le projet
+Base de données
 
-## Base donnees:
--- Se connecter à MySQL:
+--Se connecter à MySQL
 ```sql
 mysql -u root -p
 ```
----
--- Créer la base de données:
+--Créer la base de données
 ```sql
 CREATE DATABASE reservation_salles;
 ```
----
--- Utiliser la base de données :
+--Utiliser la base de données
 ```sql
 USE reservation_salles;
 ```
----
-## Backend :
+Backend
 ```bash
 cd backend
 npm run dev
 ```
+Serveur disponible sur http://localhost:5000
 
-Serveur sur http://localhost:5000
----
-## Frontend :
+Frontend
 ```bash
 cd frontend
 npm start
 ```
-L’application sera accessible sur http://localhost:3000
-
+Application accessible sur http://localhost:3000
 ---
-
 Endpoints API principaux
 
 Authentification
