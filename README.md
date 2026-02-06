@@ -167,7 +167,9 @@ NODE_ENV=development
 JWT_EXPIRE=30d
 UPLOADS_PATH=./uploads
 ```
-Frontend
+---
+.
+## Frontend
 ```bash
 cd frontend
 npm install
