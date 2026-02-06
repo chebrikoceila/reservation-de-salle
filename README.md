@@ -151,8 +151,7 @@ cd backend
 npm install       # Installer les dépendances
 cp .env           # Copier fichier de configuration
 ```
----
-## Configuration .env backend :
+ Configuration .env backend :
 ```bash
 PORT=5000
 DB_HOST=localhost
@@ -172,8 +171,7 @@ cd frontend
 npm install
 cp .env
 ```
-
-## Configuration .env frontend :
+ Configuration .env frontend :
 ```bash
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_ENV=development
