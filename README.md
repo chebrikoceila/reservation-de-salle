@@ -1,110 +1,74 @@
- # PRÉSENTATION DU PROJET:
+# RESERVATION-DE-SALLE
 
-Nom du Projet : RESERVATION-DE-SALLE
-Description : Application web complète permettant la location et réservation de salles de réunion/événements entre propriétaires et clients.
-Technologies : (MySQL, Express, React, Node.js)
+## Présentation du projet
+**Reservation-de-salle** est une application web complète permettant la location et réservation de salles de réunion ou d’événements, entre propriétaires et clients.
 
+### Technologies utilisées
+- **Backend** : Node.js, Express.js, MySQL2, JWT, Bcryptjs, Multer, Express-validator, Cors  
+- **Frontend** : React 18, React Router 6, Axios, Context API, Leaflet, CSS Modules  
+- **Outils de développement** : Nodemon, Postman/Insomnia, Git, VS Code
 
-# Auteurs :
- Chebri koceila
- mecellem massinissa
- harket soraya
- saidani rabah
+---
 
+## Auteurs
+- Chebri Koceila  
+- Mecellem Massinissa  
+- Harket Soraya  
+- Saidani Rabah  
 
-# STRUCTURE DU PROJET :
+---
 
-
-# reservation-de-salle
-
-# backend/
-├── src/
-│   ├── config/                                          # Configuration
-│   │   └── database.js                                  # Connexion MySQL
-│   ├── controllers/                                     # Logique métier
-│   │   ├── auth.controller.js
-│   │   ├── booking.controller.js
-│   │   ├── review.controller.js
-│   │   └── room.controller.js
-│   ├── middleware/                                      # Middleware
-│   │   ├── auth.js                                      # Authentification JWT
-│   │   ├── upload.js                                    # Upload fichiers
-│   │   └── validation.js                                # Validation données
-│   ├── models/                                          # Modèles de données
-│   │   ├── user.model.js
-│   │   ├── booking.model.js
-│   │   ├── review.model.js
-│   │   └── room.model.js
-│   ├── routes/                                          # Routes API
-│   │   ├── auth.routes.js
-│   │   ├── booking.routes.js
-│   │   ├── review.routes.js
-│   │   └── room.routes.js
-│   ├── utils/                                           # Utilitaires
-│   │   └── helpers.js
-│   └── server.js                                        # Point d'entrée
-├── uploads/                                             # Fichiers uploadés
-│   └── rooms/
-├── .env                                                 # Variables d'environnement
-├── .gitignore
-├── package.json
-└── package-lock.json
-
-# Frontend/
-├── public/                                              # Fichiers statiques
-│   └──  index.html
-│   
-├── src/
-│   ├── components/                                      # Composants réutilisables
-│   │   ├── Header.js
-│   │   ├── Footer.js
-│   │   ├── RoomCard.js
-│   │   ├── ProtectedRoute.js
-│   │   ├── MapComponent.js                              # Carte de localisation
-│   │   └── LocationPicker.js                            # Sélecteur d'emplacement
-│   ├── pages/                                           # Pages de l'application
-│   │   ├── Home.js                                      # Page d'accueil
-│   │   ├── Login.js                                     # Connexion
-│   │   ├── Register.js                                  # Inscription
-│   │   ├── RoomList.js                                  # Liste des salles 
-│   │   ├── CreateReview.js                              # cree un avis
-│   │   ├── RoomDetail.js                                # Détail d'une salle
-│   │   ├── Booking.js                                   # Réservation
-│   │   ├── Dashboard.js                                 # Tableau de bord client
-│   │   ├── OwnerDashboard.js                            # Espace propriétaire
-│   │   ├── AdminDashboard.js                            # Administration
-│   │   └── CreateReview.js                              # Formulaire d'avis
-│   ├── services/                                        # Services API
-│   │   ├── api.js                                       # Configuration axios
-│   │   └── auth.js                                      # Service authentification
-│   ├── context/                                         # Context React
-│   │   └── AuthContext.js                               # Contexte d'authentification
-│   ├── App.js                                           # Composant principal
-│   ├── App.css                                          # Styles globaux
-│   └── index.js                                         # Point d'entrée React
-├── .env                                                 # Configuration
-├── .gitignore
-├── package.json
+## Structure du projet
+```
+reservation-de-salle/
+├── backend/
+│ ├── src/
+│ │ ├── config/ # Configuration (database.js)
+│ │ ├── controllers/ # Logique métier
+│ │ ├── middleware/ # Middleware (auth, upload, validation)
+│ │ ├── models/ # Modèles de données
+│ │ ├── routes/ # Routes API
+│ │ ├── utils/ # Utilitaires
+│ │ └── server.js # Point d'entrée
+│ ├── uploads/ # Fichiers uploadés
+│ ├── .env # Variables d'environnement
+│ ├── package.json
+│ └── package-lock.json
+│
+├── frontend/
+│ ├── public/ # Fichiers statiques
+│ ├── src/
+│ │ ├── components/ # Composants réutilisables
+│ │ ├── pages/ # Pages de l'application
+│ │ ├── services/ # Services API
+│ │ ├── context/ # Contexte React
+│ │ ├── App.js # Composant principal
+│ │ ├── App.css # Styles globaux
+│ │ └── index.js # Point d'entrée React
+│ ├── .env # Configuration frontend
+│ ├── package.json
+│ └── README.md
 └── README.md
+```
+---
+## Base de données MySQL
+
+**Nom** : `reservation_salles`  
+
+### Tables principales
+- `users` : utilisateurs  
+- `rooms` : salles  
+- `bookings` : réservations  
+- `reviews` : avis  
+- `room_images` : images des salles  
 
 
 
-# Base de Données MySQL:
+### SCHEMA DE LA BASE DE DONNÉES:
+```sql
 
-# Nom : reservation_salles
-
-# Tables 
-├── users               # Utilisateurs
-├── rooms               # Salles
-├── bookings            # Réservations
-├── reviews             # Avis
-└── room_images         # Images des salles
-
-
-
-# SCHEMA DE LA BASE DE DONNÉES:
-
-# TABLE users (
+-- Users
+CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -115,7 +79,8 @@ Technologies : (MySQL, Express, React, Node.js)
  )
 
 
-# TABLE rooms (
+-- Rooms
+CREATE TABLE rooms (
     id INT PRIMARY KEY AUTO_INCREMENT,
     owner_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
@@ -133,9 +98,10 @@ Technologies : (MySQL, Express, React, Node.js)
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE
-)
+);
 
-# TABLE bookings (
+--bookings
+CREATE TABLE bookings (
     id INT PRIMARY KEY AUTO_INCREMENT,
     client_id INT NOT NULL,
     room_id INT NOT NULL,
@@ -148,7 +114,8 @@ Technologies : (MySQL, Express, React, Node.js)
     FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
 );
 
-# TABLE reviews (
+---reviews
+CREATE TABLE reviews (
     id INT PRIMARY KEY AUTO_INCREMENT,
     booking_id INT UNIQUE NOT NULL,
     client_id INT NOT NULL,
@@ -161,7 +128,8 @@ Technologies : (MySQL, Express, React, Node.js)
     FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
 );
 
-# TABLE room_images (
+---room_images
+CREATE TABLE room_images (
     id INT PRIMARY KEY AUTO_INCREMENT,
     room_id INT NOT NULL,
     image_url VARCHAR(500) NOT NULL,
@@ -169,292 +137,268 @@ Technologies : (MySQL, Express, React, Node.js)
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
 );
-
-
-
-# INSTALLATION ET CONFIGURATION
-
--Node.js (v14+)
--MySQL (8.0+)
-
-# Installation Backend
-1. Installer les dépendances
-npm install
-
-2. Configurer l'environnement
-cp .env.example .env
-
-3. Éditer .env avec les configurations
-Configuration .env backend 
-(
+```
+---
+# Installation et Configuration
+## Prérequis
+- Node.js (v14+)
+- MySQL (8.0+)
+## Backend
+```bash
+cd backend
+npm install       # Installer les dépendances
+cp .env           # Copier fichier de configuration
+```
+Configuration .env backend
+```bash
 PORT=5000
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=ton_mot_de_passe
+DB_PASSWORD=23112000
 DB_NAME=reservation_salles
-JWT_SECRET=ta_clé_secrète_jwt
-JWT_EXPIRE=30d
+JWT_SECRET=ma_super_secret_key_pour_jwt_2025_reservation
 NODE_ENV=development
+JWT_EXPIRE=30d
 UPLOADS_PATH=./uploads
-)
-
-2. Installation Frontend
-
+```
+---
+## Frontend
+```bash
+cd frontend
 npm install
-
-# Configurer
-cp .env.example .env
-Configuration .env frontend :
-(
+cp .env
+```
+Configuration .env frontend
+```bash
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_ENV=development
-)
+```
+---
+Lancer le projet
+Base de données
 
-# Initialisation Base de Données
-
-1. Se connecter à MySQL
+- Se connecter à MySQL
+```sql
 mysql -u root -p
-
-2. Créer la base de données
+```
+- Créer la base de données
+```sql
 CREATE DATABASE reservation_salles;
+```
+- Utiliser la base de données
+```sql
 USE reservation_salles;
-
-3. Terminal 1 - Backend
+```
+Backend
+```bash
+cd backend
 npm run dev
-Serveur sur http://localhost:5000
+```
+Serveur disponible sur http://localhost:5000
 
-4. Terminal 2 - Frontend
+Frontend
+```bash
+cd frontend
 npm start
- Application sur http://localhost:3000
+```
+Application accessible sur http://localhost:3000
 
+## Endpoints API principaux
 
+Authentification
+- POST	/api/auth/register	inscription
+- POST	/api/auth/login	Connexion
+- GET	/api/auth/profile	Profil utilisateur
 
+Salles
+- GET	/api/rooms	Liste des salles
+- POST	/api/rooms	Créer une salle (propriétaire)
+- PUT	/api/rooms/:id	Modifier salle
+- DELETE	/api/rooms/:id	Supprimer salle
 
-# API ENDPOINTS
+Réservations
+- POST	/api/bookings	Créer une réservation
+- PUT	/api/bookings/:id/cancel	Annuler réservation
 
-# Authentification
-POST   /api/auth/register      # Inscription
-POST   /api/auth/login         # Connexion
-GET    /api/auth/profile       # Profil utilisateur
-GET    /api/auth/users         # Liste utilisateurs (admin)
-PUT    /api/auth/users/:id/role # Modifier rôle (admin)
-
-# Salles
-GET    /api/rooms              # Liste toutes les salles
-GET    /api/rooms/:id          # Détail d'une salle
-POST   /api/rooms              # Créer une salle (propriétaire)
-PUT    /api/rooms/:id          # Modifier une salle (propriétaire)
-DELETE /api/rooms/:id          # Supprimer une salle (propriétaire)
-GET    /api/rooms/owner/my-rooms # Mes salles (propriétaire)
-GET    /api/rooms/owner/stats  # Statistiques propriétaire
-
-# Réservations
-POST   /api/bookings           # Créer une réservation (client)
-GET    /api/bookings/my-bookings # Mes réservations (client)
-PUT    /api/bookings/:id/cancel # Annuler réservation (client)
-GET    /api/bookings/owner/bookings # Réservations pour mes salles (propriétaire)
-PUT    /api/bookings/:id/confirm # Confirmer réservation (propriétaire)
-PUT    /api/bookings/:id/reject  # Refuser réservation (propriétaire)
-
-# Avis
-POST   /api/reviews            # Créer un avis (client)
-GET    /api/reviews/room/:roomId # Avis d'une salle
-GET    /api/reviews/my-reviews  # Mes avis (client)
+Avis
+- POST	/api/reviews	Créer un avis
+- GET	/api/reviews/room/:roomId	Avis d’une salle
 
 
 
 
 # RÔLES ET PERMISSIONS :
 
-# Visiteur
--Consulter les salles disponibles
--Voir les détails des salles
--Voir les avis
+Visiteur
+- Consulter les salles disponibles
+- Voir les détails des salles
+- Voir les avis
 
-# Client
--Toutes les permissions visiteur
--Réserver des salles
--Gérer ses réservations
--Laisser des avis après réservation terminée
+Client
+- Toutes les permissions visiteur
+- Réserver des salles
+- Gérer ses réservations
+- Laisser des avis après réservation terminée
 
-# Propriétaire
--Toutes les permissions client
--Créer/modifier/supprimer ses salles
--Upload d'images pour ses salles
--Gérer les réservations de ses salles (accepter/refuser)
--Voir les statistiques de ses salles
+Propriétaire
+- Toutes les permissions client
+- Créer/modifier/supprimer ses salles
+- Upload d'images pour ses salles
+- Gérer les réservations de ses salles (accepter/refuser)
+- Voir les statistiques de ses salles
 
-# Administrateur
--Toutes les permissions
--Gérer tous les utilisateurs
--Modifier/supprimer n'importe quelle salle et reservation
--Accès aux statistiques globales
+Administrateur
+- Toutes les permissions
+- Gérer tous les utilisateurs
+- Modifier/supprimer n'importe quelle salle et reservation
+- Accès aux statistiques globales
+---
 
+# Fonctionnalités Avancées
 
+## 1. Système de Localisation
+- Carte interactive (Leaflet/OpenStreetMap)  
+- Géocodage automatique des villes  
+- Sélection précise des coordonnées GPS  
+- Affichage des salles sur la carte  
 
+## 2. Gestion des Images
+- Upload multiple d'images  
+- Validation du type et de la taille des fichiers  
+- Stockage local dans `/uploads`  
+- Possibilité de désigner une image principale  
 
+## 3. Système d'Avis
+- Notation de 1 à 5 étoiles  
+- Commentaires modérés  
+- Validation : l'avis possible seulement après réservation terminée  
+- Affichage public avec calcul de la moyenne  
 
-# FONCTIONNALITÉS AVANCÉES
+## 4. Recherche et Filtrage
+- Recherche par ville, capacité, prix  
+- Disponibilité en temps réel  
+- Tri par prix, capacité ou notation  
+- Pagination des résultats  
 
-1. Système de Localisation :
-
--Carte interactive (Leaflet/OpenStreetMap)
--Géocodage automatique des villes
--Sélection précise des coordonnées GPS
--Affichage des salles sur carte
-
-2. Gestion des Images :
-
--Upload multiple d'images
--Validation du type et taille
--Stockage local dans /uploads
--Image principale désignable
-
-3. Système d'Avis :
-
--Notation de 1 à 5 étoiles
--Commentaires modérés
--Validation : réservation terminée seulement
--Affichage public avec moyenne
-
-4. Recherche et Filtrage :
-
--Par ville, capacité, prix
--Disponibilité en temps réel
--Tri par prix, capacité, notation
--Pagination des résultats
-
-5. Gestion des Réservations :
-
--Vérification des conflits de dates
--Calcul automatique du prix
--Statuts : en attente, confirmé, terminé, annulé
--Notifications 
+## 5. Gestion des Réservations
+- Vérification automatique des conflits de dates  
+- Calcul automatique du prix  
+- Statuts : en attente, confirmé, terminé, annulé  
+- Notifications pour les utilisateurs concernés  
 
 
 
-# TECHNOLOGIES UTILISÉES :
+# Technologies Utilisées
 
-# Backend :
--Node.js : Environnement d'exécution
--Express.js : Framework web
--MySQL2 : Driver MySQL
--JWT : Authentification
--Bcryptjs : Hash des mots de passe
--Multer : Upload de fichiers
--Express-validator : Validation
--Cors : Partage de ressources cross-origin
+## Serveur (Backend)
+- **Node.js** : Environnement d'exécution  
+- **Express.js** : Framework web  
+- **MySQL2** : Driver MySQL  
+- **JWT** : Authentification  
+- **Bcryptjs** : Hash des mots de passe  
+- **Multer** : Upload de fichiers  
+- **Express-validator** : Validation des données  
+- **Cors** : Partage de ressources cross-origin  
 
-# Frontend :
--React 18 : Bibliothèque UI
--React Router 6 : Navigation
--Axios : Requêtes HTTP
--Context API : Gestion d'état
--Leaflet : Cartes interactives
--CSS Modules : Styles
+## Interface (Frontend)
+- **React 18** : Bibliothèque UI  
+- **React Router 6** : Navigation  
+- **Axios** : Requêtes HTTP  
+- **Context API** : Gestion d'état  
+- **Leaflet** : Cartes interactives  
+- **CSS Modules** : Styles  
 
-# Outils de Développement :
--Nodemon : Redémarrage automatique
--Postman/Insomnia : Test API
--Git : Versionnement
--VS Code : Éditeur
+## Outils de Développement
+- **Nodemon** : Redémarrage automatique  
+- **Postman / Insomnia** : Test API  
+- **Git** : Versionnement  
+- **VS Code** : Éditeur  
 
-# SÉCURITÉ :
+---
 
--Authentification JWT avec expiration
--Hash Bcrypt pour les mots de passe
--Validation des entrées utilisateur
--Protection CORS configurée
--Middleware d'authentification sur routes sensibles
--Sanitization des données
--Permissions par rôle
--Variables d'environnement pour les secrets
--Logs d'erreurs sans informations sensibles
--Validation côté serveur et client
--Gestion des erreurs centralisée
--Timeout sur les requêtes
+# Sécurité
+- Authentification JWT avec expiration  
+- Hash Bcrypt pour les mots de passe  
+- Validation des entrées utilisateur  
+- Protection CORS configurée  
+- Middleware d'authentification sur routes sensibles  
+- Sanitization des données  
+- Permissions par rôle  
+- Variables d'environnement pour les secrets  
+- Logs d'erreurs sans informations sensibles  
+- Validation côté serveur et client  
+- Gestion des erreurs centralisée  
+- Timeout sur les requêtes  
+---
+# Interfaces Utilisateur
 
+## 1. Page d'Accueil
+- Présentation de la plateforme  
+- Salles populaires en vedette  
+- Appels à l'action  
+- Fonctionnalités principales  
 
-# INTERFACES UTILISATEUR :
+## 2. Liste des Salles
+- Grille responsive  
+- Filtres avancés  
+- Pagination  
+- Cartes avec informations essentielles  
 
-# Page d'Accueil
->Présentation de la plateforme
->Salles populaires en vedette
->Appels à l'action
->Fonctionnalités principales
+## 3. Détail d'une Salle
+- Galerie d'images  
+- Description complète  
+- Équipements  
+- Carte de localisation  
+- Formulaire de réservation  
+- Avis des clients  
 
-# Liste des Salles
->Grille responsive
->Filtres avancés
->Pagination
->Cartes avec informations essentielles
+## 4. Tableau de Bord Client
+- Réservations en cours  
+- Historique des réservations  
+- Avis laissés  
+- Actions rapides  
 
-# Détail d'une Salle
->Galerie d'images
->Description complète
->Équipements
->Carte de localisation
->Formulaire de réservation
->Avis des clients
+## 5. Espace Propriétaire
+- Gestion des salles  
+- Réservations en attente  
+- Statistiques  
+- Formulaire de création de salle  
 
-# Tableau de Bord Client
->Réservations en cours
->Historique
->Avis laissés
->Actions rapides
+## 6. Administration
+- Gestion des utilisateurs  
+- Supervision des salles  
+- Modération des avis  
+- Statistiques globales  
 
-# Espace Propriétaire
->Gestion des salles
->Réservations en attente
->Statistiques
->Formulaire de création
+---
+# Tests et Vérifications
 
-# Administration
->Gestion utilisateurs
->Supervision des salles
->Modération des avis
->Statistiques globales
+## Tests Manuels
+- Inscription / Connexion avec différents rôles  
+- Création de salle avec images et localisation  
+- Recherche avec filtres  
+- Réservation avec dates valides  
+- Gestion des réservations (confirmer / refuser)  
+- Système d'avis après réservation terminée  
+- Permissions par rôle  
 
+---
 
-Configuration Production
-env
-# Backend 
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=23112000
-DB_NAME=reservation_salles
-JWT_SECRET=ma_super_secret_key_pour_jwt_koceila_2025
-JWT_EXPIRE=30d
-ALLOWED_ORIGINS=https://localhost:3000,http://localhost:5173
-Port du serveur:PORT=5000
+# Statistiques et Métriques
 
-# TEST :
-Tests Manuels
->Inscription/Connexion avec différents rôles
->Création de salle avec images et localisation
->Recherche avec filtres
->Réservation avec dates valides
->Gestion des réservations (confirmer/refuser)
->Système d'avis après réservation terminée
->Permissions par rôle
+## Disponibles pour Propriétaires
+- Nombre total de salles  
+- Salles disponibles  
+- Nombre de réservations  
+- Prix moyen par heure  
+- Nombre d'avis  
+- Note moyenne  
 
+## Disponibles pour Administrateurs
+- Nombre total d'utilisateurs  
+- Répartition par rôle  
+- Nombre total de salles  
+- Taux d'occupation global  
 
-
-# STATISTIQUES ET MÉTRIQUES :
-
-# Disponibles pour Propriétaires
->Nombre total de salles
->Salles disponibles
->Nombre de réservations
->Prix moyen par heure
->Nombre d'avis
->Note moyenne
-
-# Disponibles pour Administrateurs
->Nombre total d'utilisateurs
->Répartition par rôle
->Nombre total de salles
->Taux d'occupation global
 
