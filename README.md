@@ -19,7 +19,7 @@
 ---
 
 ## Structure du projet
-
+text
 reservation-de-salle/
 ├── backend/
 │ ├── src/
@@ -49,7 +49,7 @@ reservation-de-salle/
 │ ├── package.json
 │ └── README.md
 └── README.md
-
+text
 ---
 ## Base de données MySQL
 
@@ -289,114 +289,116 @@ Administrateur
 
 
 
-# TECHNOLOGIES UTILISÉES :
+# Technologies Utilisées
 
-# Backend :
--Node.js : Environnement d'exécution
--Express.js : Framework web
--MySQL2 : Driver MySQL
--JWT : Authentification
--Bcryptjs : Hash des mots de passe
--Multer : Upload de fichiers
--Express-validator : Validation
--Cors : Partage de ressources cross-origin
+## Serveur (Backend)
+- **Node.js** : Environnement d'exécution  
+- **Express.js** : Framework web  
+- **MySQL2** : Driver MySQL  
+- **JWT** : Authentification  
+- **Bcryptjs** : Hash des mots de passe  
+- **Multer** : Upload de fichiers  
+- **Express-validator** : Validation des données  
+- **Cors** : Partage de ressources cross-origin  
 
-# Frontend :
--React 18 : Bibliothèque UI
--React Router 6 : Navigation
--Axios : Requêtes HTTP
--Context API : Gestion d'état
--Leaflet : Cartes interactives
--CSS Modules : Styles
+## Interface (Frontend)
+- **React 18** : Bibliothèque UI  
+- **React Router 6** : Navigation  
+- **Axios** : Requêtes HTTP  
+- **Context API** : Gestion d'état  
+- **Leaflet** : Cartes interactives  
+- **CSS Modules** : Styles  
 
-# Outils de Développement :
--Nodemon : Redémarrage automatique
--Postman/Insomnia : Test API
--Git : Versionnement
--VS Code : Éditeur
+## Outils de Développement
+- **Nodemon** : Redémarrage automatique  
+- **Postman / Insomnia** : Test API  
+- **Git** : Versionnement  
+- **VS Code** : Éditeur  
 
-# SÉCURITÉ :
+---
 
--Authentification JWT avec expiration
--Hash Bcrypt pour les mots de passe
--Validation des entrées utilisateur
--Protection CORS configurée
--Middleware d'authentification sur routes sensibles
--Sanitization des données
--Permissions par rôle
--Variables d'environnement pour les secrets
--Logs d'erreurs sans informations sensibles
--Validation côté serveur et client
--Gestion des erreurs centralisée
--Timeout sur les requêtes
+# Sécurité
+- Authentification JWT avec expiration  
+- Hash Bcrypt pour les mots de passe  
+- Validation des entrées utilisateur  
+- Protection CORS configurée  
+- Middleware d'authentification sur routes sensibles  
+- Sanitization des données  
+- Permissions par rôle  
+- Variables d'environnement pour les secrets  
+- Logs d'erreurs sans informations sensibles  
+- Validation côté serveur et client  
+- Gestion des erreurs centralisée  
+- Timeout sur les requêtes  
+---
+# Interfaces Utilisateur
 
+## 1. Page d'Accueil
+- Présentation de la plateforme  
+- Salles populaires en vedette  
+- Appels à l'action  
+- Fonctionnalités principales  
 
-# INTERFACES UTILISATEUR :
+## 2. Liste des Salles
+- Grille responsive  
+- Filtres avancés  
+- Pagination  
+- Cartes avec informations essentielles  
 
-# Page d'Accueil
->Présentation de la plateforme
->Salles populaires en vedette
->Appels à l'action
->Fonctionnalités principales
+## 3. Détail d'une Salle
+- Galerie d'images  
+- Description complète  
+- Équipements  
+- Carte de localisation  
+- Formulaire de réservation  
+- Avis des clients  
 
-# Liste des Salles
->Grille responsive
->Filtres avancés
->Pagination
->Cartes avec informations essentielles
+## 4. Tableau de Bord Client
+- Réservations en cours  
+- Historique des réservations  
+- Avis laissés  
+- Actions rapides  
 
-# Détail d'une Salle
->Galerie d'images
->Description complète
->Équipements
->Carte de localisation
->Formulaire de réservation
->Avis des clients
+## 5. Espace Propriétaire
+- Gestion des salles  
+- Réservations en attente  
+- Statistiques  
+- Formulaire de création de salle  
 
-# Tableau de Bord Client
->Réservations en cours
->Historique
->Avis laissés
->Actions rapides
+## 6. Administration
+- Gestion des utilisateurs  
+- Supervision des salles  
+- Modération des avis  
+- Statistiques globales  
 
-# Espace Propriétaire
->Gestion des salles
->Réservations en attente
->Statistiques
->Formulaire de création
+---
+# Tests et Vérifications
 
-# Administration
->Gestion utilisateurs
->Supervision des salles
->Modération des avis
->Statistiques globales
+## Tests Manuels
+- Inscription / Connexion avec différents rôles  
+- Création de salle avec images et localisation  
+- Recherche avec filtres  
+- Réservation avec dates valides  
+- Gestion des réservations (confirmer / refuser)  
+- Système d'avis après réservation terminée  
+- Permissions par rôle  
 
+---
 
-# TEST :
-Tests Manuels
->Inscription/Connexion avec différents rôles
->Création de salle avec images et localisation
->Recherche avec filtres
->Réservation avec dates valides
->Gestion des réservations (confirmer/refuser)
->Système d'avis après réservation terminée
->Permissions par rôle
+# Statistiques et Métriques
 
+## Disponibles pour Propriétaires
+- Nombre total de salles  
+- Salles disponibles  
+- Nombre de réservations  
+- Prix moyen par heure  
+- Nombre d'avis  
+- Note moyenne  
 
+## Disponibles pour Administrateurs
+- Nombre total d'utilisateurs  
+- Répartition par rôle  
+- Nombre total de salles  
+- Taux d'occupation global  
 
-# STATISTIQUES ET MÉTRIQUES :
-
-Disponibles pour Propriétaires
->Nombre total de salles
->Salles disponibles
->Nombre de réservations
->Prix moyen par heure
->Nombre d'avis
->Note moyenne
-
-Disponibles pour Administrateurs
->Nombre total d'utilisateurs
->Répartition par rôle
->Nombre total de salles
->Taux d'occupation global
 
