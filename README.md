@@ -178,15 +178,15 @@ REACT_APP_ENV=development
 Lancer le projet
 Base de données
 
---Se connecter à MySQL
+- Se connecter à MySQL
 ```sql
 mysql -u root -p
 ```
---Créer la base de données
+- Créer la base de données
 ```sql
 CREATE DATABASE reservation_salles;
 ```
---Utiliser la base de données
+- Utiliser la base de données
 ```sql
 USE reservation_salles;
 ```
@@ -196,15 +196,14 @@ cd backend
 npm run dev
 ```
 Serveur disponible sur http://localhost:5000
-
 Frontend
 ```bash
 cd frontend
 npm start
 ```
 Application accessible sur http://localhost:3000
----
-Endpoints API principaux
+
+# Endpoints API principaux
 
 Authentification
 Méthode	Endpoint	Description
