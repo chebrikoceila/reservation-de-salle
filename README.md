@@ -196,6 +196,7 @@ cd backend
 npm run dev
 ```
 Serveur disponible sur http://localhost:5000
+
 Frontend
 ```bash
 cd frontend
@@ -203,30 +204,26 @@ npm start
 ```
 Application accessible sur http://localhost:3000
 
-# Endpoints API principaux
+## Endpoints API principaux
 
 Authentification
-Méthode	Endpoint	Description
-POST	/api/auth/register	Inscription
-POST	/api/auth/login	Connexion
-GET	/api/auth/profile	Profil utilisateur
+-POST	/api/auth/register	Inscription
+-POST	/api/auth/login	Connexion
+-GET	/api/auth/profile	Profil utilisateur
 
 Salles
-Méthode	Endpoint	Description
-GET	/api/rooms	Liste des salles
-POST	/api/rooms	Créer une salle (propriétaire)
-PUT	/api/rooms/:id	Modifier salle
-DELETE	/api/rooms/:id	Supprimer salle
+-GET	/api/rooms	Liste des salles
+-POST	/api/rooms	Créer une salle (propriétaire)
+-PUT	/api/rooms/:id	Modifier salle
+-DELETE	/api/rooms/:id	Supprimer salle
 
 Réservations
-Méthode	Endpoint	Description
-POST	/api/bookings	Créer une réservation
-PUT	/api/bookings/:id/cancel	Annuler réservation
+-POST	/api/bookings	Créer une réservation
+-PUT	/api/bookings/:id/cancel	Annuler réservation
 
 Avis
-Méthode	Endpoint	Description
-POST	/api/reviews	Créer un avis
-GET	/api/reviews/room/:roomId	Avis d’une salle
+-POST	/api/reviews	Créer un avis
+-GET	/api/reviews/room/:roomId	Avis d’une salle
 
 
 
