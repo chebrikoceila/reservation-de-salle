@@ -140,15 +140,10 @@ CREATE TABLE room_images (
 ```
 ---
 # Installation et Configuration
-
 ## Prérequis
 - Node.js (v14+)
 - MySQL (8.0+)
-
----
-
 ## Backend
-
 ```bash
 cd backend
 npm install       # Installer les dépendances
@@ -168,8 +163,7 @@ JWT_EXPIRE=30d
 UPLOADS_PATH=./uploads
 ```
 ---
-.
-## (Frontend)
+## Frontend
 ```bash
 cd frontend
 npm install
