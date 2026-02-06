@@ -207,23 +207,23 @@ Application accessible sur http://localhost:3000
 ## Endpoints API principaux
 
 Authentification
--POST	/api/auth/register	Inscription
--POST	/api/auth/login	Connexion
--GET	/api/auth/profile	Profil utilisateur
+- POST	/api/auth/register	Inscription
+- POST	/api/auth/login	Connexion
+- GET	/api/auth/profile	Profil utilisateur
 
 Salles
--GET	/api/rooms	Liste des salles
--POST	/api/rooms	Créer une salle (propriétaire)
--PUT	/api/rooms/:id	Modifier salle
--DELETE	/api/rooms/:id	Supprimer salle
+- GET	/api/rooms	Liste des salles
+- POST	/api/rooms	Créer une salle (propriétaire)
+- PUT	/api/rooms/:id	Modifier salle
+- DELETE	/api/rooms/:id	Supprimer salle
 
 Réservations
--POST	/api/bookings	Créer une réservation
--PUT	/api/bookings/:id/cancel	Annuler réservation
+- POST	/api/bookings	Créer une réservation
+- PUT	/api/bookings/:id/cancel	Annuler réservation
 
 Avis
--POST	/api/reviews	Créer un avis
--GET	/api/reviews/room/:roomId	Avis d’une salle
+- POST	/api/reviews	Créer un avis
+- GET	/api/reviews/room/:roomId	Avis d’une salle
 
 
 
