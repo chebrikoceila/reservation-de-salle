@@ -19,7 +19,7 @@
 ---
 
 ## Structure du projet
-text
+```
 reservation-de-salle/
 ├── backend/
 │ ├── src/
@@ -49,7 +49,7 @@ reservation-de-salle/
 │ ├── package.json
 │ └── README.md
 └── README.md
-text
+```
 ---
 ## Base de données MySQL
 
