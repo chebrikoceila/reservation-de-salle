@@ -231,28 +231,28 @@ Avis
 # RÔLES ET PERMISSIONS :
 
 Visiteur
---Consulter les salles disponibles
---Voir les détails des salles
---Voir les avis
+-- Consulter les salles disponibles
+-- Voir les détails des salles
+-- Voir les avis
 
 Client
---Toutes les permissions visiteur
---Réserver des salles
---Gérer ses réservations
---Laisser des avis après réservation terminée
+-- Toutes les permissions visiteur
+-- Réserver des salles
+-- Gérer ses réservations
+-- Laisser des avis après réservation terminée
 
 Propriétaire
---Toutes les permissions client
---Créer/modifier/supprimer ses salles
---Upload d'images pour ses salles
---Gérer les réservations de ses salles (accepter/refuser)
---Voir les statistiques de ses salles
+-- Toutes les permissions client
+-- Créer/modifier/supprimer ses salles
+-- Upload d'images pour ses salles
+-- Gérer les réservations de ses salles (accepter/refuser)
+-- Voir les statistiques de ses salles
 
 Administrateur
---Toutes les permissions
---Gérer tous les utilisateurs
---Modifier/supprimer n'importe quelle salle et reservation
---Accès aux statistiques globales
+-- Toutes les permissions
+-- Gérer tous les utilisateurs
+-- Modifier/supprimer n'importe quelle salle et reservation
+-- Accès aux statistiques globales
 
 
 
