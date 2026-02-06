@@ -255,42 +255,37 @@ Administrateur
 - Accès aux statistiques globales
 ---
 
-## FONCTIONNALITÉS AVANCÉES
+# Fonctionnalités Avancées
 
-1. Système de Localisation :
+## 1. Système de Localisation
+- Carte interactive (Leaflet/OpenStreetMap)  
+- Géocodage automatique des villes  
+- Sélection précise des coordonnées GPS  
+- Affichage des salles sur la carte  
 
--Carte interactive (Leaflet/OpenStreetMap)
--Géocodage automatique des villes
--Sélection précise des coordonnées GPS
--Affichage des salles sur carte
+## 2. Gestion des Images
+- Upload multiple d'images  
+- Validation du type et de la taille des fichiers  
+- Stockage local dans `/uploads`  
+- Possibilité de désigner une image principale  
 
-2. Gestion des Images :
+## 3. Système d'Avis
+- Notation de 1 à 5 étoiles  
+- Commentaires modérés  
+- Validation : l'avis possible seulement après réservation terminée  
+- Affichage public avec calcul de la moyenne  
 
--Upload multiple d'images
--Validation du type et taille
--Stockage local dans /uploads
--Image principale désignable
+## 4. Recherche et Filtrage
+- Recherche par ville, capacité, prix  
+- Disponibilité en temps réel  
+- Tri par prix, capacité ou notation  
+- Pagination des résultats  
 
-3. Système d'Avis :
-
--Notation de 1 à 5 étoiles
--Commentaires modérés
--Validation : réservation terminée seulement
--Affichage public avec moyenne
-
-4. Recherche et Filtrage :
-
--Par ville, capacité, prix
--Disponibilité en temps réel
--Tri par prix, capacité, notation
--Pagination des résultats
-
-5. Gestion des Réservations :
-
--Vérification des conflits de dates
--Calcul automatique du prix
--Statuts : en attente, confirmé, terminé, annulé
--Notifications 
+## 5. Gestion des Réservations
+- Vérification automatique des conflits de dates  
+- Calcul automatique du prix  
+- Statuts : en attente, confirmé, terminé, annulé  
+- Notifications pour les utilisateurs concernés  
 
 
 
