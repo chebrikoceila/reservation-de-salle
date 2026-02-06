@@ -144,8 +144,6 @@ CREATE TABLE room_images (
 - Node.js (v14+)
 - MySQL (8.0+)
 
----
-
 ## Backend
 
 ```bash
@@ -154,7 +152,7 @@ npm install       # Installer les dépendances
 cp .env           # Copier fichier de configuration
 ```
 ---
-### Configuration .env backend :
+## Configuration .env backend :
 ```bash
 PORT=5000
 DB_HOST=localhost
@@ -168,18 +166,19 @@ JWT_EXPIRE=30d
 UPLOADS_PATH=./uploads
 ```
 ---
-##Frontend
+## Frontend
 ```bash
 cd frontend
 npm install
 cp .env
 ```
----
-### Configuration .env frontend :
+
+## Configuration .env frontend :
 ```bash
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_ENV=development
 ```
+
 ---
 # Lancer le projet 
 
