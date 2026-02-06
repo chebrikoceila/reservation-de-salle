@@ -13,7 +13,7 @@
 ## Auteurs
 - Chebri Koceila  
 - Mecellem Massinissa  
-- Harket Soraya  
+- Harkat Soraya  
 - Saidani Rabah  
 
 ---
